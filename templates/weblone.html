@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../static/webstyle.css">
+</head>
+<body>
+
+<div class="header">
+  <h2>Abalone Age Prediction</h2>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>What is an Abalone:</h2>
+      <iframe src="https://www.youtube.com/embed/BsMp3gwcsWE?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <br>
+      <h2>About The Dataset:</h2>
+      <p>The Abalone Dataset was originally published at the <mark>UCI Machine Learning Repository</mark>, and can be found at <a href="https://archive.ics.uci.edu/ml/datasets/Abalone/">Data Link</a>. The original stated problem is estimate the age an abalone, which can be determined from the number of rings in their shell. However, counting the number of rings in an abalone shell is an expensive method. Thus, one possible solution is predict the number of rings of an abalone from characteristics like height, diameter, lenght and weight measurements.</p>
+      <h3>The Abalone Dataset is composed of the following attributes:</h3>
+      <table style="width:100%">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>Gender</td>
+          <td>M, F, and I (infant)</td>
+        </tr>
+        <tr>
+          <td>Length</td>
+          <td>Longest Shell Measurement</td>
+        </tr>
+        <tr>
+          <td>Diameter</td>
+          <td>Perpendicular to Length</td>
+        </tr>
+        <tr>
+          <td>Height</td>
+          <td>With meat in shell</td>
+        </tr>
+        <tr>
+          <td>Whole weight</td>
+          <td>Complete Abalone Weight</td>
+        </tr>
+        <tr>
+          <td>Shucked weight</td>
+          <td>Weight of meat</td>
+        </tr>
+        <tr>
+          <td>Viscera Weight</td>
+          <td>Gut Weight</td>
+        </tr>
+        <tr>
+          <td>Shell Weight</td>
+          <td>After Being Dried</td>
+        </tr>
+        <tr>
+          <td>Rings</td>
+          <td>Number of Rings</td>
+        </tr>
+      </table>
+      <p>Here Lengths are defined in mm & Weights are in grams.</p>
+      <p>We can Measure the age by adding 1.5 to the number of rings obtained</p>
+      <br>
+      <h3>Age of Abalone = (Rings+1.5) Years</h3>
+    </div>
+  </div>
+
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>Sample Image Of Abalone</h2>
+      <img src="https://i.pinimg.com/originals/99/68/df/9968df5a41210097c97aee634005b456.png" style="width:100%" style="height:100%">
+    </div>
+    <div class="card">
+      <div class="login">
+        <h2>Machine Learning Modeling:</h2>
+        <h3>Prediction of Abalone Age Based On Number Of Rings</h3>
+        <h4>Enter the required Values:</h4>
+        <form action="{{ url_for('predict')}}"method="POST">
+          <select name="Gender" required="required">
+            <option value="">Select Gender </option>
+            <option value="F">Female</option>
+            <option value="M">Male</option>
+            <option value="I">Infant</option>
+          </select>
+          <div>
+            <input type="number" name="Diameter" step="0.01" min="0" max="1" placeholder="Diameter" required="required" />
+            <input type="number" name="Height" step="0.01" min="0" max="1" placeholder="Height" required="required" />
+            <input type="number" name="Shucked Weight" step="0.01" min="0" max="1" placeholder="Shucked Weight" required="required" />
+            <input type="number" name="Length" step="0.01" min="0" max="1" placeholder="Length" required="required" />
+            <input type="number" name="Whole Weight" step="0.01" min="0" max="1" placeholder="Whole Weight" required="required" />
+            <input type="number" name="Viscera Weight" step="0.01" min="0" max="1" placeholder="Viscera Weight" required="required" />
+            <input type="number" name="Shell Weight" step="0.01" min="0" max="1" placeholder="Shell Weight" required="required" />
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+          </div>
+          <h4>{{Text}}</h3>
+          <h5>{{Rings}}</h4>
+          <h5>{{Age}}</h4>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <h2>Thank You !</h2>
+</div>
+
+</body>
+</html>
