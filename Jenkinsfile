@@ -8,18 +8,16 @@ pipeline {
             }
         }
         
-        stage('Install Dependencies') {
+        stage('Build') {
             steps {
                 sh 'sudo pip3 install -r requirements.txt'
             }
         }
         
-        stage('Build') {
+        stage('Deploy') {
             steps {
                 sh 'sudo screen -m -d python3 app.py build'
             }
         }
-    }
-    
-
+    }   
 }
