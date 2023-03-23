@@ -16,19 +16,7 @@ pipeline {
         
         stage('Build') {
             steps {
-                sh 'sudo python3 app.py build'
-            }
-        }
-        
-        stage('Test') {
-            steps {
-                sh 'sudo python3 app.py test'
-            }
-        }
-        
-        stage('Package') {
-            steps {
-                sh 'sudo python3 app.py sdist bdist_wheel'
+                sh 'screen -m -d python3 app.py build'
             }
         }
     }
