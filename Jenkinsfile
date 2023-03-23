@@ -16,7 +16,7 @@ pipeline {
         
         stage('Build') {
             steps {
-                sh 'screen -m -d python3 app.py build'
+                sh 'sudo screen -m -d python3 app.py build'
             }
         }
     }
