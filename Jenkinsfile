@@ -10,25 +10,25 @@ pipeline {
         
         stage('Install Dependencies') {
             steps {
-                sh 'pip3 install -r requirements.txt'
+                sh 'sudo pip3 install -r requirements.txt'
             }
         }
         
         stage('Build') {
             steps {
-                sh 'python3 app.py build'
+                sh 'sudo python3 app.py build'
             }
         }
         
         stage('Test') {
             steps {
-                sh 'python3 app.py test'
+                sh 'sudo python3 app.py test'
             }
         }
         
         stage('Package') {
             steps {
-                sh 'python3 app.py sdist bdist_wheel'
+                sh 'sudo python3 app.py sdist bdist_wheel'
             }
         }
     }
