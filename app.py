@@ -30,4 +30,4 @@ def predict():
     return render_template('weblone.html', Text = "For The Given Abalone Dimensions: ",Rings = "Number of Rings: {} ".format(output), Age = "Age : {} Years".format(output+1.5))
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8000, debug=True)
+    app.run(host="0.0.0.0", port=8001, debug=True)
