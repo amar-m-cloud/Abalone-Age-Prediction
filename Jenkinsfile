@@ -3,7 +3,7 @@ pipeline{
   stages{ 
     stage{ 
 	     steps{ 
-	      git branch: 'main', url: 'https://github.com/chxtan/react_django_demo_app.git' 
+	      git branch: 'main', url: 'https://github.com/amar-m-cloud/Abalone-Age-Prediction.git' 
 	     } 
 	   } 
 	stage{ 
@@ -14,14 +14,14 @@ pipeline{
   stage{ 
     steps{ 
       script{ 
-		  sh "docker build --no-cache -t react_django_demo_app ." 
+		  sh "docker build --no-cache -t abp ." 
 		  } 
     } 
   } 
   stage{ 
     steps{ 
       script{ 
-	      sh "docker run -p 8001:8001 -d react_django_demo_app" 
+	      sh "docker run -p 80:80 -d abp" 
 	  	} 
     } 
   } 
