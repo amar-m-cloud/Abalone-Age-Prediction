@@ -10,13 +10,13 @@ pipeline {
         
         stage('Build') {
             steps {
-                sh 'sudo pip3 install -r requirements.txt'
+                sh 'sudo docker build -t abalone-web-app .'
             }
         }
         
         stage('Deploy') {
             steps {
-                sh 'sudo screen -m -d python3 app.py build'
+                sh 'sudo docker run -p 80:80 -d abalone-web-app'
             }
         }
     }   
